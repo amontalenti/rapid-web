@@ -13,6 +13,53 @@
         <div class="container">
             <!-- <bootstrap> -->
 
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand hidden-phone">Rapid News</a>
+                    <a class="brand visible-phone">RN</a>
+                    <ul class="nav">
+                        <li class="active"><a href="#">Links</a></li>
+                        <li><a href="#">Submit</a></li>
+                    </ul>
+                    <form class="navbar-search pull-right hidden-phone" action="/search">
+                        <small><i class="icon-search"></i> Search</small>
+                        <input name="query" type="text" class="search-query" placeholder="">
+                    </form>
+                </div>
+            </div>
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Score</th>
+                        <th>Link</th>
+                        <th>Published</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="label label-important">150</span></td>
+                        <td><a href="#">The Meditations of Marcus Aurelius</a></td>
+                        <td><span class="label">3 hours ago</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">123</span></td>
+                        <td><a href="#">Under Their Feet</a></td>
+                        <td><span class="label">1 day ago</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">82</span></td>
+                        <td><a href="#">Segway inventor's next endeavor</a></td>
+                        <td><span class="label">2 days ago</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="label">32</span></td>
+                        <td><a href="#">The Next Supermodel</a></td>
+                        <td><span class="label">3 days ago</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
             <!-- </bootstrap> -->
         </div>
 

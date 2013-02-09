@@ -27,3 +27,9 @@ v0.5-modal
 ----------
 
 Use Bootstrap JavaScript component to add a modal dialog.
+
+v0.6-dynamic
+------------
+
+Add a slightest bit of dynamism via a public JSON-P Hacker News API.
+

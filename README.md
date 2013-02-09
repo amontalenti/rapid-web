@@ -38,3 +38,7 @@ v0.7-submit
 
 Add a form for submitting new stories with Bootstrap.
 
+v0.8-clickable
+--------------
+
+Clickable prototype now complete; now to add a Python server!

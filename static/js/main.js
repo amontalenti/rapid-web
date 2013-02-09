@@ -1,21 +1,20 @@
 // when the DOM loads
 $(function() {
     // simple animation to fade in all but the top story
-    var rowNum = 0;
-    var dur = 0;
+    var rowNum = 1;
+    var dur = 500;
     $("tbody tr").each(function() { 
-        // capture current row
-        var elm = $(this); 
         if (rowNum === 0) { 
-            dur += 500;
-            rowNum++; 
+            // skip 1st row
             return; 
         } 
+        // capture current row
+        var elm = $(this); 
         // schedule it to fade in
         setTimeout(function() { 
             elm.fadeIn();
         }, dur); 
         dur += 500;
-        rowNum++;
+        rowNum += 1;
     });
 });

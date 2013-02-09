@@ -1,0 +1,5 @@
+# for live code updates
+livereload
+# for ipython notebook
+tornado
+pyzmq

@@ -23,3 +23,7 @@ v0.4-anim
 
 You will add some basic jQuery code for implementing a frontpage animation.
 
+v0.5-modal
+----------
+
+Use Bootstrap JavaScript component to add a modal dialog.

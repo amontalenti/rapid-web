@@ -12,6 +12,31 @@
 
         <div class="container">
             <!-- <bootstrap> -->
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <a class="brand hidden-phone">Rapid News</a>
+                    <a class="brand visible-phone">RN</a>
+                    <ul class="nav">
+                        <li><a href="/">Links</a></li>
+                        <li class="active"><a href="#">Submit</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="submit-form">
+                <form action="/new">
+                    <fieldset>
+                        <legend>Submit some news!</legend>
+                        <label>Link</label>
+                        <input type="text" placeholder="http://...">
+                        <label>Title</label>
+                        <input type="text" placeholder="news headline or description">
+                        <div class="control-group">
+                            <button type="submit" class="btn">Submit!</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         
             <!-- </bootstrap> -->
         </div>

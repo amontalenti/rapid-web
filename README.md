@@ -13,6 +13,13 @@ v0.2-static
 
 You will have a static, jQuery and Bootstrap enabled HTML template in static/index.html.
 
-We will evaluate the components available to you in this static environment,
-and how to add the slightest bit of dynamism by using a Python
-SimpleHTTPServer.
+v0.3-links
+----------
+
+Use Bootstrap's table and label components to build up the basic user interface.
+
+v0.4-anim
+---------
+
+You will add some basic jQuery code for implementing a frontpage animation.
+

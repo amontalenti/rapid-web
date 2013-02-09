@@ -33,3 +33,8 @@ v0.6-dynamic
 
 Add a slightest bit of dynamism via a public JSON-P Hacker News API.
 
+v0.7-submit
+-----------
+
+Add a form for submitting new stories with Bootstrap.
+

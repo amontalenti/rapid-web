@@ -1,8 +1,8 @@
-def query_articles():
+def top_articles():
     return []
 
-def search_articles():
+def search_articles(query):
     return []
 
-def insert_article():
+def insert_article(article):
     return False

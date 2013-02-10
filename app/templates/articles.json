@@ -1,0 +1,6 @@
+{ "rows": [
+        {"title": "Google", "score": 150, "link": "http://google.com"},
+        {"title": "Yahoo", "score": 75, "link": "http://yahoo.com"},
+        {"title": "Bing", "score": 50, "link": "http://bing.com"}
+    ]
+}

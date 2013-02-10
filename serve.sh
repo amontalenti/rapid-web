@@ -1,2 +1,2 @@
 cd static
-python -m SimpleHTTPServer
+livereload -p 8000

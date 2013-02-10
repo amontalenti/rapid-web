@@ -10,11 +10,13 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row.score }}</td>
+                    <td><a href="{{ row.link }}">{{ row.title }}</a></td>
+                    <td>just now</td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
 {% endblock %}

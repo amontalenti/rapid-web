@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request
-from rapid import (query_articles, search_articles, insert_article)
+from rapid import (top_articles, search_articles, insert_article)
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    articles = query_articles()
+    articles = top_articles()
     return render_template('index.jinja2.html', 
                            articles=articles)
 

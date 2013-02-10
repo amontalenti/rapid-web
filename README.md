@@ -42,3 +42,13 @@ v0.8-clickable
 --------------
 
 Clickable prototype now complete; now to add a Python server!
+
+v0.9-flask
+----------
+
+Skeletal Flask application working with stub view functions.
+
+v1.0-app
+--------
+
+Example Jinja2 templates bringing the app together.

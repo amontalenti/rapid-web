@@ -1,0 +1,12 @@
+<table>
+    <tr>
+        <td><strong>Number</strong></td>
+        <td><strong>Square</strong></td>
+    </tr>
+    {%- for item in rows %}
+        <tr>
+            <td>{{ item.number }}</td>
+            <td>{{ item.square }}</td>
+        </tr>
+    {%- endfor %}
+<table>

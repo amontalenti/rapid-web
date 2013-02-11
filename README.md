@@ -52,3 +52,9 @@ v1.0-app
 --------
 
 Example Jinja2 templates bringing the app together.
+
+v1.1-jinja
+----------
+
+Jinja2 templates upgraded using Bootstrap markup and scripts from prototype.
+

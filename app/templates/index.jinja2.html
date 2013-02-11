@@ -1,22 +1,37 @@
 {% extends 'layout.jinja2.html' %}
+{% from 'util.jinja2.html' import link_tag, js_tag %}
+
 {% block title %}Latest News{% endblock %}
+
+{% block css %}
+        {{ link_tag('main') }}
+{% endblock %}
+
 {% block body %}
-    <table>
-        <thead>
-            <tr>
-                <th>Score</th>
-                <th>Link</th>
-                <th>Published</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for row in rows %}
-                <tr>
-                    <td>{{ row.score }}</td>
-                    <td><a href="{{ row.link }}">{{ row.title }}</a></td>
-                    <td>just now</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Score</th>
+                        <th>Link</th>
+                        <th>Published</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in rows %}
+                        <tr style="display: none;">
+                            <td><span class="label label-important">{{ row.score }}</span></td>
+                            <td><a href="{{ row.link }}">{{ row.title }}</a></td>
+                            <td><span class="label">just now</span></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+{% endblock %}
+
+{% block js %}
+        {{ script_tag('hnfake') }}
+        {{ script_tag('cookies') }}
+        {{ script_tag('animation') }}
+        {{ script_tag('firstuser') }}
+        {{ script_tag('main') }}
 {% endblock %}

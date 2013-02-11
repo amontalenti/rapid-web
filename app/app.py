@@ -1,13 +1,13 @@
 from flask import Flask, render_template, request
 from rapid import (top_articles, search_articles, insert_article)
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="../static", static_url_path="/static")
 
 @app.route('/')
 def index():
     articles = top_articles()
     return render_template('index.jinja2.html', 
-                           articles=articles)
+                           rows=articles)
 
 @app.route('/search/<query>')
 def search(query):

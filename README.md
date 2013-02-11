@@ -58,3 +58,7 @@ v1.1-jinja
 
 Jinja2 templates upgraded using Bootstrap markup and scripts from prototype.
 
+v1.2-formflow
+-------------
+
+Beginnings of a form submission and multi-page flow.

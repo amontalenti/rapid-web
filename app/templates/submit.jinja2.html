@@ -6,18 +6,45 @@
         {{ link_tag('main') }}
 {% endblock %}
 
+{% macro error(name) -%}
+    {% if errors and errors[name] -%}
+        error
+    {% endif -%}
+{% endmacro -%}
+
+{% macro errorhelp(name) -%}
+    {% if errors and errors[name] -%}
+        <span class="help-inline">{{ errors[name] }}</span>
+    {% endif -%}
+{% endmacro -%}
+
+{% macro input(name, desc, type='text', placeholder=None) -%}
+    <div class="control-group {{ error(name) }}">
+        <label class="control-label" for="{{ name }}">{{ desc }}</label>
+        <div class="controls">
+            <input  type="{{ type }}" 
+                    name="{{ name }}" id="{{ name }}" 
+                    value="{{ request.form[name] }}"
+                    placeholder="{{ placeholder }}">
+            {{ errorhelp(name) }}
+        </div>
+    </div>
+{%- endmacro %}
+
+{% macro button(name) -%}
+    <button type="submit" class="btn btn-primary">{{ name }}</button>
+{%- endmacro %}
+
 {% block body %}
             <div id="submit-form">
+                <h2>Submit a new article!</h2>
+
                 <form method="POST">
                     <fieldset>
-                        <legend>Submit some news!</legend>
-                        <label>Link</label>
-                        <input type="text" placeholder="http://...">
-                        <label>Title</label>
-                        <input type="text" placeholder="news headline or description">
-                        <div class="control-group">
-                            <button type="submit" class="btn">Submit!</button>
-                        </div>
+                        {{ input("link", "Link", placeholder="http://...") }}
+                        {{ input("title", "Title", placeholder="headline or description") }}
+                        <div class="form-actions">
+                            {{ button("Submit") }}
                     </fieldset>
                 </form>
             </div>

@@ -1,0 +1,14 @@
+{% extends 'layout.jinja2.html' %}
+
+{% block title %}Success!{% endblock %}
+
+{% block css %}
+        {{ link_tag('main') }}
+{% endblock %}
+
+{% block body %}
+            <div id="success-msg">
+                <h2>Thanks!</h2>
+                <p>Your submission has been uploaded and will hopefully receive votes shortly.</p>
+            </div>
+{% endblock %}

@@ -8,7 +8,9 @@ def top_articles():
     return articles
 
 def search_articles(query):
+    print "Searching ->", query
     return []
 
 def insert_article(article):
-    return False
+    print "Inserting ->", article
+    return True

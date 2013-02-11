@@ -7,7 +7,8 @@ app = Flask(__name__, static_folder="../static", static_url_path="/static")
 def index():
     articles = top_articles()
     return render_template('index.jinja2.html', 
-                           rows=articles)
+                           rows=articles,
+                           page_links="active")
 
 @app.route('/search/<query>')
 def search(query):
@@ -21,13 +22,18 @@ def submit():
     if request.method == "POST":
         return do_submit()
     else:
-        return render_template('submit.jinja2.html')
+        return render_template('submit.jinja2.html',
+                               page_submit="active")
 
 def do_submit():
-    # article = Article(title=title, link=link)
-    # insert_article(article)
-    article = insert_article()
-    return render_template("inserted.jinja2.html", article=article)
+    form = request.form
+    submission = dict(
+        title=form["title"],
+        link=form["link"]
+    )
+    article = insert_article(submission)
+    return render_template("success.jinja2.html",
+                           page_submit="active")
 
 def run_devserver():
     app.run(debug=True)

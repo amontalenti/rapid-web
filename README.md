@@ -62,3 +62,8 @@ v1.2-formflow
 -------------
 
 Beginnings of a form submission and multi-page flow.
+
+v1.3-filters
+------------
+
+Implement simple and complex Jinja2 filters for use in templates.

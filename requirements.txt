@@ -1,2 +1,4 @@
 ipython
 Flask
+Flask-Script
+Fabric

@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, abort
+from flask.ext.script import Manager
 from rapid import (top_articles, search_articles, insert_article, validate_submission, track_click)
 from filters import human_date
 
@@ -49,8 +50,7 @@ def click():
     track_click(url)
     return redirect(url)
 
-def run_devserver():
-    app.run(debug=True)
+manager = Manager(app)
 
 if __name__ == "__main__":
-    run_devserver()
+    manager.run()

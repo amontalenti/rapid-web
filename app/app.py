@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from rapid import (top_articles, search_articles, insert_article)
+from rapid import (top_articles, search_articles, insert_article, validate_submission)
 from filters import val_ago
 
 app = Flask(__name__, static_folder="../static", static_url_path="/static")
@@ -32,9 +32,15 @@ def do_submit():
         title=form["title"],
         link=form["link"]
     )
-    article = insert_article(submission)
-    return render_template("success.jinja2.html",
-                           page_submit="active")
+    valid, errors = validate_submission(submission)
+    if valid:
+        article = insert_article(submission)
+        return render_template("success.jinja2.html",
+                               page_submit="active")
+    else:
+        return render_template('submit.jinja2.html',
+                               page_submit="active",
+                               errors=errors)
 
 def run_devserver():
     app.run(debug=True)

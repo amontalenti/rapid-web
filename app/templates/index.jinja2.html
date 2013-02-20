@@ -19,7 +19,7 @@
                     {% for row in rows|sort(attribute="date", reverse=True) %}
                         <tr style="display: none;">
                             <td><span class="label label-important">{{ row.score }}</span></td>
-                            <td><a href="{{ row.link }}">{{ row.title }}</a></td>
+                            <td>{{ tracked_link(row.title, row.link) }}</td>
                             <td><span class="label">{{ row.date|human_date }}</span></td>
                         </tr>
                     {% endfor %}

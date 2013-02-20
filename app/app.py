@@ -1,5 +1,5 @@
-from flask import Flask, render_template, request
-from rapid import (top_articles, search_articles, insert_article, validate_submission)
+from flask import Flask, render_template, request, redirect, abort
+from rapid import (top_articles, search_articles, insert_article, validate_submission, track_click)
 from filters import human_date
 
 app = Flask(__name__, static_folder="../static", static_url_path="/static")
@@ -42,6 +42,12 @@ def do_submit():
         return render_template('submit.jinja2.html',
                                page_submit="active",
                                errors=errors)
+
+@app.route('/click/')
+def click():
+    url = request.args["url"]
+    track_click(url)
+    return redirect(url)
 
 def run_devserver():
     app.run(debug=True)

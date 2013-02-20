@@ -23,6 +23,10 @@ def insert_article(article):
     print "Inserting ->", article
     return True
 
+def track_click(url):
+    print "Tracking ->", url
+    return True
+
 def validate_submission(params):
     errors = {}
     def err(id, msg):

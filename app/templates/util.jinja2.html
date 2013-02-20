@@ -5,3 +5,7 @@
 {%- macro script_tag(location) -%}
         <script src="/static/js/{{ location }}.js"></script>
 {%- endmacro -%}
+
+{%- macro tracked_link(title, url) -%}
+        <a href="{{ url_for("click", url=url) }}">{{ title }}</a>
+{%- endmacro -%}

@@ -1,12 +1,18 @@
 from urllib2 import urlopen, URLError
+import datetime as dt
 
 def top_articles():
+    now = dt.datetime.now()
+    def ago(days=0, seconds=0):
+        return now - dt.timedelta(days=days, seconds=seconds)
     articles = [
-        {"title": "Google", "score": 150, "link": "http://google.com"},
-        {"title": "Yahoo", "score": 75, "link": "http://yahoo.com"},
-        {"title": "Bing", "score": 50, "link": "http://bing.com"}
+        {"title": "Google", "score": 150, "link": "http://google.com", "date": ago(seconds=60)},
+        {"title": "Yahoo", "score": 75, "link": "http://yahoo.com", "date": ago(days=3)},
+        {"title": "Bing", "score": 50, "link": "http://bing.com", "date": ago(days=14)},
+        {"title": "NYTimes", "score": 25, "link": "http://nytimes.com", "date": ago(days=1)},
+        {"title": "Fox News", "score": 15, "link": "http://foxnews.com", "date": ago(seconds=60*60)},
+        {"title": "The Atlantic", "score": 5, "link": "http://theatlantic.com", "date": ago(days=24)},
     ]
-    articles = articles * 3
     return articles
 
 def search_articles(query):

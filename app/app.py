@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request
 from rapid import (top_articles, search_articles, insert_article, validate_submission)
-from filters import val_ago
+from filters import human_date
 
 app = Flask(__name__, static_folder="../static", static_url_path="/static")
+app.add_template_filter(human_date)
 
 @app.route('/')
 def index():

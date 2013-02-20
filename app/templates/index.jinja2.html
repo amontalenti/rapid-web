@@ -16,11 +16,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for row in rows %}
+                    {% for row in rows|sort(attribute="date", reverse=True) %}
                         <tr style="display: none;">
                             <td><span class="label label-important">{{ row.score }}</span></td>
                             <td><a href="{{ row.link }}">{{ row.title }}</a></td>
-                            <td><span class="label">just now</span></td>
+                            <td><span class="label">{{ row.date|human_date }}</span></td>
                         </tr>
                     {% endfor %}
                 </tbody>

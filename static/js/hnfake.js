@@ -5,6 +5,9 @@
         var params = "?appid=RAPID&callback=?";
         var url = [apiroot, path, params].join("");
 
+        // disable HNFake for now!
+        return;
+
         $.getJSON(url, function(data) {
             var rows = $("table tr");
             $.each(data.items, function(i, item) {

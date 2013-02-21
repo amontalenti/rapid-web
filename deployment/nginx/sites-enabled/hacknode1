@@ -1,0 +1,11 @@
+server {
+	listen 80;
+	server_name hacknode1.alephpoint.com;
+	location / {
+		try_files $uri @hacknode1;
+	}
+	location @hacknode1 {
+		include uwsgi_params;
+		uwsgi_pass unix:/tmp/uwsgi-hacknode1.sock;
+	}
+}

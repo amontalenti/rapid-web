@@ -3,3 +3,5 @@ livereload
 # for ipython notebook
 tornado
 pyzmq
+# for deployment
+Fabric

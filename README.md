@@ -66,4 +66,29 @@ Beginnings of a form submission and multi-page flow.
 v1.3-filters
 ------------
 
-Implement simple and complex Jinja2 filters for use in templates.
+Simple and complex Jinja2 filters for use in templates.
+
+v1.4-validation
+---------------
+
+Basic form validation logic in the web app.
+
+v1.5-sort
+---------
+
+Utilizes Jinja2 filters to sort results in index page.
+
+v1.6-clicktrack
+---------------
+
+Click tracking using a new Flask route, redirect, and Jinja2 macro.
+
+v1.7-fabric
+-----------
+
+A first fabfile for automating server management and deployment.
+
+v1.8-server
+-----------
+
+A modified fabfile for dealing with a real-world deployment environment.

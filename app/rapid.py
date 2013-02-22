@@ -1,30 +1,48 @@
 from urllib2 import urlopen, URLError
 import datetime as dt
+from pymongo import MongoClient
+
+TEAM_NAME = "hacknode1"
+
+def get_collection():
+    return MongoClient()[TEAM_NAME].articles 
 
 def top_articles():
-    now = dt.datetime.now()
-    def ago(days=0, seconds=0):
-        return now - dt.timedelta(days=days, seconds=seconds)
-    articles = [
-        {"title": "Google", "score": 150, "link": "http://google.com", "date": ago(seconds=60)},
-        {"title": "Yahoo", "score": 75, "link": "http://yahoo.com", "date": ago(days=3)},
-        {"title": "Bing", "score": 50, "link": "http://bing.com", "date": ago(days=14)},
-        {"title": "NYTimes", "score": 25, "link": "http://nytimes.com", "date": ago(days=1)},
-        {"title": "Fox News", "score": 15, "link": "http://foxnews.com", "date": ago(seconds=60*60)},
-        {"title": "The Atlantic", "score": 5, "link": "http://theatlantic.com", "date": ago(days=24)},
-    ]
-    return articles
+    coll = get_collection()
+    articles = coll.find()
+    return list(articles)
 
 def search_articles(query):
     print "Searching ->", query
-    return []
+    articles = coll.find({"title": 
+                            {"$regex": query}
+                         })
+    return list(articles)
 
 def insert_article(article):
-    print "Inserting ->", article
-    return True
+    coll = get_collection()
+    existing = coll.find_one({"link": article["link"]})
+    if existing is not None:
+        print "Found existing, explicit upvoting ->", existing
+        coll.update({"link": existing["link"]},
+                    {"$inc":
+                        {"score": 5}
+                    })
+        return True
+    else:
+        article["score"] = 0
+        article["date"] = dt.datetime.now()
+        print "Inserting ->", article
+        coll.insert(article)
+        return True
 
 def track_click(url):
+    coll = get_collection()
     print "Tracking ->", url
+    coll.update({"link": url}, 
+                {"$inc": 
+                    {"score": 1}
+                })
     return True
 
 def validate_submission(params):

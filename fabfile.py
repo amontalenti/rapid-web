@@ -38,7 +38,7 @@ def deploy():
     run("mkdir -p servers")
     rsync_project(remote_dir="servers/" + TEAM_NAME,
                   local_dir="./",
-                  exclude=("*.pyc", ".git", "rapid-env", "steps", "activate"))
+                  exclude=("*.pyc", ".git", "rapid-env", "activate"))
 
 def supervisor_run(cmd):
     sudo("supervisorctl {}".format(cmd), shell=False)

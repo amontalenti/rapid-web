@@ -39,3 +39,14 @@ def deploy():
     rsync_project(remote_dir="servers/" + TEAM_NAME,
                   local_dir="./",
                   exclude=("*.pyc", ".git", "rapid-env", "steps", "activate"))
+
+def supervisor_run(cmd):
+    sudo("supervisorctl {}".format(cmd), shell=False)
+
+@task
+def restart():
+    """Restart supervisor service."""
+    supervisor_run("restart {}".format(TEAM_NAME))
+    run("sleep 1")
+    supervisor_run("tail -800 {}".format(TEAM_NAME))
+

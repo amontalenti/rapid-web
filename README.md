@@ -92,3 +92,13 @@ v1.8-server
 -----------
 
 A modified fabfile for dealing with a real-world deployment environment.
+
+v1.9-mongo
+----------
+
+Add MongoDB query layer to the application for storing articles.
+
+v2.0-fin
+--------
+
+Last bits to get app ready for shipping!

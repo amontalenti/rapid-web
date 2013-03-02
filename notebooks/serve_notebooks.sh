@@ -1,4 +1,5 @@
 #!/bin/bash
+[[ -z "$1" ]] && echo "must specify port" && exit 1
 # requires an activation script in directory above
 source ../activate
 # makes a sandbox folder
